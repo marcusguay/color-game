@@ -1,20 +1,60 @@
-void play(){
-background(backgroundchange);
+void play() {
+  background(255);
+  if (cd<=0) {
+    if (mousePressed==true) {
+      if (mode==play) {
 
-if(dist(mouseX,mouseY,100,100) < 50) {
-mode=gameover;}
-noStroke();
-  fill(black);
+        if (mouseX>width/2) {
+          if(answercheck<=0 && answercheck>=0){
+            answer=false; 
+points++;
+       NewAnswer=0;
+          } 
+        } else { 
+          if(answercheck==0){
+          points++;}
+          answer=true;
+          NewAnswer=0;
+        }
+      }
+    }
+  }
+  if (cd<=0) {
+    if (NewAnswer==0) {
+      rngs=int(random(0, 4));  
+      rngcc=int(random(0, 4));
+      NewAnswer=1;
+      cd=10;
+    }
+  }
+ //if(answer==true){
+  // if(answercheck==0){
+  // rightanswer=true;
+  // points=points++;
+   //} 
+   answercheck=rngs-rngcc;
+   
+  cd=cd-1;
+text(points,200,100);
+text(rngs-rngcc,100,300);
+  noStroke();
+if(answer==true){
+  
+
+}
+
+  fill(Black);
   rect(400, 400, 800, 600); 
 
-  fill(white);
+  fill(White);
   rect(0, 400, 400, 600); 
 
   text("No", 600-25, 500);
 
-  fill(black);
+  fill(Black);
   text("Yes", 200-25, 500);
-  
-  wordgen();
 
+  text("Is this", 0, 200);
+  text("?", 700, 200);
+  wordgen();
 }
