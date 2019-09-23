@@ -1,9 +1,17 @@
 int mode; 
+int rngco;
 int rngs;
+int rnga;
 int rngcc;
+float timerx;
+int highscore;
+int lasthighscore;
+int lastpoints;
+int score;
 int cd;
 int points;
 boolean rightanswer;
+int modetimer;
  boolean answer;
 int NewAnswer;
 int answercheck;
@@ -19,10 +27,19 @@ final int intro = 0;
 final int play =1;
 final int gameover=2;
 void setup() {
-
+  timerx=width;
   size(800, 600);
   mode=intro;
   if(NewAnswer==0){
+     rngco=int(random(0,1));
+     if(rngco==0){
+       rnga=int(random(0,4)); rngcc=rnga;
+  rngs=rnga;}
+       if(rngco==1){
+       rngcc=rnga;
+  rngs=rnga;
+  NewAnswer=1;} 
+       
   rngs=int(random(0,4));  
   rngcc=int(random(0,4));
   NewAnswer=1;
